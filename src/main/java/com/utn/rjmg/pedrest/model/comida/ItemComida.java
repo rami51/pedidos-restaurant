@@ -14,12 +14,6 @@ public class ItemComida extends AbstractPersistentObject {
 	private Boolean componente;
 	private Integer maxCantidadComponentes;
 	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	public Double getPrecio() {
 		return precio;
 	}
