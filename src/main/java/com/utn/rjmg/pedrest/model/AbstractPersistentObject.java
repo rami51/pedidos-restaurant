@@ -33,6 +33,7 @@ public abstract class AbstractPersistentObject {
 	protected String modificationUser;
 	protected Date creationTime;
 	protected Date modificationTime;
+	
 	@Version
 	protected Integer version;
 	public Long getId() {
@@ -65,6 +66,7 @@ public abstract class AbstractPersistentObject {
 	public void setVersion(Integer version) {
 		this.version = version;
 	}
+	
 	@Override
 	@Transient
 	public String toString() {
