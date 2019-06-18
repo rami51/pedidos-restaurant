@@ -17,8 +17,31 @@ public class Usuario extends AbstractPersistentObject {
 	private List<Cliente> clienteList;
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)	  
 	private List<Empleado> empleadoList;
-	
-	@OneToOne
-	private Perfil perfil;
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+	private List<UsuarioPerfil> usuarioPerfilList;
+
+	public List<Cliente> getClienteList() {
+		return clienteList;
+	}
+
+	public void setClienteList(List<Cliente> clienteList) {
+		this.clienteList = clienteList;
+	}
+
+	public List<Empleado> getEmpleadoList() {
+		return empleadoList;
+	}
+
+	public void setEmpleadoList(List<Empleado> empleadoList) {
+		this.empleadoList = empleadoList;
+	}
+
+	public List<UsuarioPerfil> getUsuarioPerfilList() {
+		return usuarioPerfilList;
+	}
+
+	public void setUsuarioPerfilList(List<UsuarioPerfil> usuarioPerfilList) {
+		this.usuarioPerfilList = usuarioPerfilList;
+	}
 
 }

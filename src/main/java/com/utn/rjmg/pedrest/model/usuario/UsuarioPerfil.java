@@ -6,17 +6,16 @@ import javax.persistence.ManyToOne;
 import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
 
 @Entity
-public class PerfilPermiso extends AbstractPersistentObject {
-	
+public class UsuarioPerfil extends AbstractPersistentObject {
 	@ManyToOne	  
-	private Permiso permiso;
+	private Usuario usuario;
 	@ManyToOne	  
 	private Perfil perfil;
-	public Permiso getPermiso() {
-		return permiso;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setPermiso(Permiso permiso) {
-		this.permiso = permiso;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	public Perfil getPerfil() {
 		return perfil;
@@ -24,5 +23,4 @@ public class PerfilPermiso extends AbstractPersistentObject {
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
-
 }

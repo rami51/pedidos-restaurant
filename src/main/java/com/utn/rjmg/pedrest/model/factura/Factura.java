@@ -22,6 +22,22 @@ public class Factura extends AbstractPersistentObject {
 	private EmpresaCliente empresaCliente;
 	@OneToOne
 	private EmpresaRestaurant empresaRestaurant;
-
-
+	public List<Pedido> getPedidoList() {
+		return pedidoList;
+	}
+	public void setPedidoList(List<Pedido> pedidoList) {
+		this.pedidoList = pedidoList;
+	}
+	public EmpresaCliente getEmpresaCliente() {
+		return empresaCliente;
+	}
+	public void setEmpresaCliente(EmpresaCliente empresaCliente) {
+		this.empresaCliente = empresaCliente;
+	}
+	public EmpresaRestaurant getEmpresaRestaurant() {
+		return empresaRestaurant;
+	}
+	public void setEmpresaRestaurant(EmpresaRestaurant empresaRestaurant) {
+		this.empresaRestaurant = empresaRestaurant;
+	}
 }
