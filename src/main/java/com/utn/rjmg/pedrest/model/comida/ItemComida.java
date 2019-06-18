@@ -52,4 +52,18 @@ public class ItemComida extends AbstractPersistentObject
 	public void setMaxCantidadComponentes(Integer maxCantidadComponentes) {
 		this.maxCantidadComponentes = maxCantidadComponentes;
 	}
+	public List<ItemComidaComponenteItemComida> getItemComidaComponenteItemComidaList() {
+		return itemComidaComponenteItemComidaList;
+	}
+	public void setItemComidaComponenteItemComidaList(
+			List<ItemComidaComponenteItemComida> itemComidaComponenteItemComidaList) {
+		this.itemComidaComponenteItemComidaList = itemComidaComponenteItemComidaList;
+	}
+	public List<ItemComidaMenuDia> getItemComidaMenuDiaList() {
+		return itemComidaMenuDiaList;
+	}
+	public void setItemComidaMenuDiaList(List<ItemComidaMenuDia> itemComidaMenuDiaList) {
+		this.itemComidaMenuDiaList = itemComidaMenuDiaList;
+	}
+	
 }

@@ -12,6 +12,12 @@ public class MenuDia extends AbstractPersistentObject
 {
 	@OneToMany(mappedBy = "menuDia", fetch = FetchType.LAZY)	  
 	private List<ItemComidaMenuDia> itemComidaMenuDiaList;
-	
-	
+
+	public List<ItemComidaMenuDia> getItemComidaMenuDiaList() {
+		return itemComidaMenuDiaList;
+	}
+
+	public void setItemComidaMenuDiaList(List<ItemComidaMenuDia> itemComidaMenuDiaList) {
+		this.itemComidaMenuDiaList = itemComidaMenuDiaList;
+	}
 }

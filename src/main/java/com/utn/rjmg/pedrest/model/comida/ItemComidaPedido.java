@@ -1,7 +1,5 @@
 package com.utn.rjmg.pedrest.model.comida;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -15,6 +13,20 @@ public class ItemComidaPedido extends AbstractPersistentObject{
 	
 	@ManyToOne	  
 	private Pedido pedido;
-	
 
+	public ItemComida getItemComida() {
+		return itemComida;
+	}
+
+	public void setItemComida(ItemComida itemComida) {
+		this.itemComida = itemComida;
+	}
+
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
 }

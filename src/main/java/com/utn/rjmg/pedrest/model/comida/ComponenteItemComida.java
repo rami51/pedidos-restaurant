@@ -13,4 +13,13 @@ public class ComponenteItemComida extends AbstractPersistentObject
 {
 	@OneToMany(mappedBy = "componenteItemComida", fetch = FetchType.LAZY)	  
 	private List<ItemComidaComponenteItemComida> itemComidaComponenteItemComidaList;
+
+	public List<ItemComidaComponenteItemComida> getItemComidaComponenteItemComidaList() {
+		return itemComidaComponenteItemComidaList;
+	}
+
+	public void setItemComidaComponenteItemComidaList(
+			List<ItemComidaComponenteItemComida> itemComidaComponenteItemComidaList) {
+		this.itemComidaComponenteItemComidaList = itemComidaComponenteItemComidaList;
+	}
 }

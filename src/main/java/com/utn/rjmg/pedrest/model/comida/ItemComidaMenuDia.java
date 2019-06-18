@@ -13,4 +13,19 @@ public class ItemComidaMenuDia extends AbstractPersistentObject{
 	@ManyToOne	  
 	private ItemComida itemComida;
 
+	public MenuDia getMenuDia() {
+		return menuDia;
+	}
+
+	public void setMenuDia(MenuDia menuDia) {
+		this.menuDia = menuDia;
+	}
+
+	public ItemComida getItemComida() {
+		return itemComida;
+	}
+
+	public void setItemComida(ItemComida itemComida) {
+		this.itemComida = itemComida;
+	}
 }
