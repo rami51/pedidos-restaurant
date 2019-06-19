@@ -21,7 +21,7 @@ import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
 import com.utn.rjmg.pedrest.service.base.BaseCrudService;
 import com.utn.rjmg.pedrest.util.EntityUtil;
 
-public abstract class BaseAbstractRestController<T extends AbstractPersistentObject, ID, S extends BaseCrudService<T,ID>, SP> {
+public abstract class AbstractBaseRestController<T extends AbstractPersistentObject, S extends BaseCrudService<T>> {
 	//T is the Entity class
 	//ID is the type of the id Entity's
 	//S is the Service class
@@ -46,13 +46,13 @@ public abstract class BaseAbstractRestController<T extends AbstractPersistentObj
 	// Single item
 	
 	@GetMapping("/{id}")
-	T one(@PathVariable ID id) {
+	T one(@PathVariable Long id) {
 		return service.findById(id)
 				.orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
 	}
 	
 	@PutMapping("/{id}")
-	T replaceEntity(@RequestBody T entity, @PathVariable ID id) {
+	T replaceEntity(@RequestBody T entity, @PathVariable Long id) {
 		T savedEntity = this.one(id);
 		final List<Method> allMethods = Arrays.asList(savedEntity.getClass().getMethods());
 		List<Pair<Method, Method>> getterAndSetterList = 
@@ -74,7 +74,7 @@ public abstract class BaseAbstractRestController<T extends AbstractPersistentObj
 	}
 	
 	@DeleteMapping("/{id}")
-	void deleteEmployee(@PathVariable ID id) {
+	void deleteEmployee(@PathVariable Long id) {
 	  service.delete(this.one(id));
 	}
 }

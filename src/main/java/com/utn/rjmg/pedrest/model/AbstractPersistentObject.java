@@ -77,7 +77,7 @@ public abstract class AbstractPersistentObject {
 				+ ", modificationTime=" + modificationTime;
 		StringBuilder sb = new StringBuilder(); 
 		sb.append(base);
-		Class c = this.getClass();
+		Class<?> c = this.getClass();
 		ArrayList<Method> methodList = new ArrayList<Method>(Arrays.asList(c.getMethods()));
 		methodList.forEach((method) -> {
 			List<Annotation> annotations = Arrays.asList(method.getAnnotations());

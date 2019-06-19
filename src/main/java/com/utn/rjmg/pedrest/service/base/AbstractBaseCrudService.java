@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
-public abstract class AbstractBaseCrudService<T, ID, R extends CrudRepository<T, ID>> implements BaseCrudService<T, ID> {
+public abstract class AbstractBaseCrudService<T, R extends CrudRepository<T, Long>> implements BaseCrudService<T> {
 	@Autowired
 	R repository;
 	
@@ -20,7 +20,7 @@ public abstract class AbstractBaseCrudService<T, ID, R extends CrudRepository<T,
 	}
 
 	@Override
-	public Optional<T> findById(ID id) {
+	public Optional<T> findById(Long id) {
 		return repository.findById(id);
 	}
 
