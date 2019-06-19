@@ -8,7 +8,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
-import com.utn.rjmg.pedrest.model.comida.ItemComidaPedido;
 import com.utn.rjmg.pedrest.model.pedido.Pedido;
 import com.utn.rjmg.pedrest.model.personas.EmpresaCliente;
 import com.utn.rjmg.pedrest.model.personas.EmpresaRestaurant;

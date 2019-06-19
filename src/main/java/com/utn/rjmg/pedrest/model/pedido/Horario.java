@@ -8,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
-import com.utn.rjmg.pedrest.model.factura.Factura;
 @Entity
 public class Horario extends AbstractPersistentObject {
 	
