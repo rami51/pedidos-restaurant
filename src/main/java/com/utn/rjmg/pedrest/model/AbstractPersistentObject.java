@@ -1,7 +1,6 @@
 package com.utn.rjmg.pedrest.model;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,10 +13,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
-import javax.persistence.Version;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.Version;
+import org.springframework.security.core.Authentication;
 
 import com.utn.rjmg.pedrest.util.MethodUtil;
+import com.utn.rjmg.pedrest.util.SecurityUtil;
 
 @MappedSuperclass
 public abstract class AbstractPersistentObject {
@@ -30,8 +36,13 @@ public abstract class AbstractPersistentObject {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	protected Long id;
+	
 	protected String modificationUser;
+	
+	@CreationTimestamp
 	protected Date creationTime;
+	
+	@UpdateTimestamp
 	protected Date modificationTime;
 	
 	@Version
@@ -45,26 +56,14 @@ public abstract class AbstractPersistentObject {
 	public String getModificationUser() {
 		return modificationUser;
 	}
-	public void setModificationUser(String modificationUser) {
-		this.modificationUser = modificationUser;
-	}
 	public Date getCreationTime() {
 		return creationTime;
-	}
-	public void setCreationTime(Date creationTime) {
-		this.creationTime = creationTime;
 	}
 	public Date getModificationTime() {
 		return modificationTime;
 	}
-	public void setModificationTime(Date modificationTime) {
-		this.modificationTime = modificationTime;
-	}
 	public Integer getVersion() {
 		return version;
-	}
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 	
 	@Override
@@ -97,6 +96,19 @@ public abstract class AbstractPersistentObject {
 		
 		sb.append("]");
 		return sb.toString();
+	}
+	
+	@PreUpdate
+	@PrePersist
+	public void prePersist() {
+		Authentication auth = SecurityUtil.getCurrentAuthentication();
+		if (auth != null) {
+			this.modificationUser = auth.getName();
+		}
+		if (version == null) {
+			version = -1;
+		}
+		version++;
 	}
 	
 }

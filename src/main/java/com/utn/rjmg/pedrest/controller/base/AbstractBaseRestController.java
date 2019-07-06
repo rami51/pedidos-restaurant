@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,24 +54,10 @@ public abstract class AbstractBaseRestController<T extends AbstractPersistentObj
 	
 	@PutMapping("/{id}")
 	T replaceEntity(@RequestBody T entity, @PathVariable Long id) {
-		T savedEntity = this.one(id);
-		final List<Method> allMethods = Arrays.asList(savedEntity.getClass().getMethods());
-		List<Pair<Method, Method>> getterAndSetterList = 
-			  EntityUtil.getNonTransientGetterAndSetterPairs(savedEntity.getClass());
-		getterAndSetterList.forEach(pair -> {
-			Method getter = allMethods.get(allMethods.indexOf(pair.getLeft()));
-			Method setter = allMethods.get(allMethods.indexOf(pair.getRight()));
-			try {
-				setter.invoke(savedEntity, getter.invoke(entity, null));
-			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-				throw new HttpServerErrorException(HttpStatus.CONFLICT, 
-						"Error on entity: " + savedEntity.getClass().getSimpleName() +
-						", please see getter '" + getter.getName() + "' and setter '" +
-						setter.getName() + "'");
-			}
-		});
-		service.save(savedEntity);
-		return savedEntity;
+		this.one(id);
+		entity.setId(id);
+		service.save(entity);
+		return entity;
 	}
 	
 	@DeleteMapping("/{id}")

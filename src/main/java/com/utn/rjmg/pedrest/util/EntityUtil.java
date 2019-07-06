@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.Pair;
@@ -16,35 +17,40 @@ public class EntityUtil {
 	public static List<Method> getDeclaredGetters(Class<?> c) {
 		return (List<Method>) Arrays.asList(c.getDeclaredMethods())
 		.stream()
-		.filter((m) -> MethodUtil.isGetter(m));
+		.filter((m) -> MethodUtil.isGetter(m))
+		.collect(Collectors.toList());
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static List<Method> getDeclaredSetters(Class<?> c) {
 		return (List<Method>) Arrays.asList(c.getDeclaredMethods())
 		.stream()
-		.filter((m) -> MethodUtil.isSetter(m));
+		.filter((m) -> MethodUtil.isSetter(m))
+		.collect(Collectors.toList());
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static List<Method> getGetters(Class<?> c) {
 		return (List<Method>) Arrays.asList(c.getMethods())
 		.stream()
-		.filter((m) -> MethodUtil.isGetter(m));
+		.filter((m) -> MethodUtil.isGetter(m))
+		.collect(Collectors.toList());
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static List<Method> getSetters(Class<?> c) {
 		return (List<Method>) Arrays.asList(c.getMethods())
 		.stream()
-		.filter((m) -> MethodUtil.isSetter(m));
+		.filter((m) -> MethodUtil.isSetter(m))
+		.collect(Collectors.toList());
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static List<Method> getNonTransientDeclaredGetters(Class<?> c) {
 		return (List<Method>) Arrays.asList(c.getDeclaredMethods())
 		.stream()
-		.filter((m) -> MethodUtil.isGetter(m) && !MethodUtil.isTransient(m));
+		.filter((m) -> MethodUtil.isGetter(m) && !MethodUtil.isTransient(m))
+		.collect(Collectors.toList());
 	}
 	
 	public static List<Pair<Method, Method>> getNonTransientGetterAndSetterPairs(Class<?> c) {
