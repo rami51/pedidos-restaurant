@@ -4,9 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.utn.rjmg.pedrest.model.comida.Bebida;
-import com.utn.rjmg.pedrest.model.comida.ItemComidaComponenteItemComida;
+import com.utn.rjmg.pedrest.model.comida.Postre;
 
 @Repository
-public interface ItemComidaComponeneteItemComidaRepositoy extends JpaRepository<ItemComidaComponenteItemComida, Long>{
+public interface PostreRepository extends JpaRepository<Postre, Long>{
 	
 }
