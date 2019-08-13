@@ -7,5 +7,7 @@ import com.utn.rjmg.pedrest.model.usuario.PerfilPermiso;
 
 @Repository
 public interface PerfilPermisoRepository extends JpaRepository<PerfilPermiso, Long>{
-	
+	/**
+	 * hola
+	 */
 }
