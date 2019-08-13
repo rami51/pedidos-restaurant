@@ -7,6 +7,6 @@ import com.utn.rjmg.pedrest.model.comida.Bebida;
 import com.utn.rjmg.pedrest.model.comida.MenuDia;
 
 @Repository
-public interface MenuDiaRepositoy extends JpaRepository<MenuDia, Long>{
+public interface MenuDiaRepository extends JpaRepository<MenuDia, Long>{
 	
 }
