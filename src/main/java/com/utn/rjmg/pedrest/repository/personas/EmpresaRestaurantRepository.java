@@ -1,11 +1,11 @@
 package com.utn.rjmg.pedrest.repository.personas;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.utn.rjmg.pedrest.model.personas.EmpresaRestaurant;
+import com.utn.rjmg.pedrest.repository.base.BaseRepository;
 
 @Repository
-public interface EmpresaRestaurantRepository extends JpaRepository<EmpresaRestaurant, Long>{
+public interface EmpresaRestaurantRepository extends BaseRepository<EmpresaRestaurant>{
 	
 }

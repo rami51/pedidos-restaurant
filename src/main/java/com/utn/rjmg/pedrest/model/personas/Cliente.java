@@ -14,6 +14,7 @@ public class Cliente extends AbstractPersistentObject {
 	@OneToOne
 	//@PrimaryKeyJoinColumn
 	private Usuario usuario;
+	
 	public Pedido getPedido() {
 		return pedido;
 	}
