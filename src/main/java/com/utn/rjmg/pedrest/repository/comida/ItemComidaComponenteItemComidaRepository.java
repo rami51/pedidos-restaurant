@@ -1,12 +1,11 @@
 package com.utn.rjmg.pedrest.repository.comida;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.utn.rjmg.pedrest.model.comida.Bebida;
 import com.utn.rjmg.pedrest.model.comida.ItemComidaComponenteItemComida;
+import com.utn.rjmg.pedrest.repository.base.BaseRepository;
 
 @Repository
-public interface ItemComidaComponenteItemComidaRepository extends JpaRepository<ItemComidaComponenteItemComida, Long>{
+public interface ItemComidaComponenteItemComidaRepository extends BaseRepository<ItemComidaComponenteItemComida>{
 	
 }

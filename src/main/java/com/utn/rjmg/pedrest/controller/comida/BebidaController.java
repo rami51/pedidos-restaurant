@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.utn.rjmg.pedrest.controller.base.AbstractBaseRestController;
 import com.utn.rjmg.pedrest.model.comida.Bebida;
 import com.utn.rjmg.pedrest.service.comida.BebidaService;
+import com.utn.rjmg.pedrest.specification.comida.BebidaSpecification;
 
 @RestController
 @RequestMapping("/bebidas")
-public class BebidaController extends AbstractBaseRestController<Bebida, BebidaService> {
+public class BebidaController extends AbstractBaseRestController<Bebida, BebidaService, BebidaSpecification> {
 	
 }
