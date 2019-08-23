@@ -49,17 +49,17 @@ public abstract class AbstractBaseRestController<T extends AbstractPersistentObj
 				.orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
 	}
 	
-	@GetMapping("/search")
+	@PostMapping("/search")
 	List<T> search(@RequestBody F spec) {
 		return service.findAll(spec);
 	}
 	
-	@GetMapping("/searchOne")
+	@PostMapping("/searchOne")
 	T searchOne(@RequestBody F spec) {
 		return service.findOne(spec).get();
 	}
 	
-	@GetMapping("/searchPaging")
+	@PostMapping("/searchPaging")
 	Page<T> searchPaging(@RequestBody F spec, @RequestBody Pageable pageable) {
 		return service.findAll(spec, pageable);
 	}
