@@ -7,5 +7,5 @@ import com.utn.rjmg.pedrest.repository.base.BaseRepository;
 
 @Repository
 public interface UsuarioRepository extends BaseRepository<Usuario>{
-	
+	public Usuario getUsuarioByUsername(String username);
 }

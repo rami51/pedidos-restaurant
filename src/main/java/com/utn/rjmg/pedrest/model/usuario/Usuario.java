@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
 import com.utn.rjmg.pedrest.model.personas.Cliente;
@@ -18,6 +19,11 @@ public class Usuario extends AbstractPersistentObject {
 	private List<Empleado> empleadoList;
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private List<UsuarioPerfil> usuarioPerfilList;
+	
+	@NotEmpty
+	private String username;
+	@NotEmpty
+	private String password;
 
 	public List<Cliente> getClienteList() {
 		return clienteList;
@@ -43,4 +49,20 @@ public class Usuario extends AbstractPersistentObject {
 		this.usuarioPerfilList = usuarioPerfilList;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 }
