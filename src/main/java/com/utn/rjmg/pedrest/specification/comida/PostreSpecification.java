@@ -9,29 +9,35 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import com.utn.rjmg.pedrest.model.comida.Bebida;
+import com.utn.rjmg.pedrest.model.comida.Postre;
 import com.utn.rjmg.pedrest.specification.base.AbstractBaseSpecification;
 
-public class BebidaSpecification extends AbstractBaseSpecification<Bebida> {
+public class PostreSpecification extends AbstractBaseSpecification<Postre> {
 	
-	BebidaFilter filter;
+	PostreFilter filter;
 	
 	@Override
-	public Predicate toPredicate(Root<Bebida> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+	public Predicate toPredicate(Root<Postre> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) 
+	{
 		Path<String> nombre = root.get("nombre");
-	
+        Path<Boolean> tieneComponente = root.get("maxCantidadComponentes");
 		final List<Predicate> predicates = new ArrayList<Predicate>();
-		if (filter.getFilterName() != null) {
+		if (filter.getFilterName() != null) 
+		{
 			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
-		}		
+		}	
+		if (filter.getFilterConditionComponent() != null) 
+		{
+		predicates.add(criteriaBuilder.equal(tieneComponente, filter.getFilterConditionComponent()));	
+		}
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}
-
-	public BebidaFilter getFilter() {
+	
+	public PostreFilter getFilter() {
 		return filter;
 	}
 
-	public void setFilter(BebidaFilter filter) {
+	public void setFilter(PostreFilter filter) {
 		this.filter = filter;
 	}
 	

@@ -1,4 +1,4 @@
-package com.utn.rjmg.pedrest.specification.comida;
+package com.utn.rjmg.pedrest.specification.pedido;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,29 +9,30 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import com.utn.rjmg.pedrest.model.comida.Bebida;
+import com.utn.rjmg.pedrest.model.pedido.Horario;
 import com.utn.rjmg.pedrest.specification.base.AbstractBaseSpecification;
 
-public class BebidaSpecification extends AbstractBaseSpecification<Bebida> {
+public class HorarioSpecification extends AbstractBaseSpecification<Horario> {
 	
-	BebidaFilter filter;
+	HorarioFilter filter;
 	
 	@Override
-	public Predicate toPredicate(Root<Bebida> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+	public Predicate toPredicate(Root<Horario> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 		Path<String> nombre = root.get("nombre");
 	
 		final List<Predicate> predicates = new ArrayList<Predicate>();
-		if (filter.getFilterName() != null) {
-			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
-		}		
+		if (filter.getFilterHorario() != null) {
+			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterHorario()+"%"));
+		}
+		
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}
 
-	public BebidaFilter getFilter() {
+	public HorarioFilter getFilter() {
 		return filter;
 	}
 
-	public void setFilter(BebidaFilter filter) {
+	public void setFilter(HorarioFilter filter) {
 		this.filter = filter;
 	}
 	

@@ -9,15 +9,18 @@ import javax.persistence.OneToMany;
 
 import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
 @Entity
-public class Horario extends AbstractPersistentObject {
+public class Mesa extends AbstractPersistentObject {
 	
-	private String horario;
+	@OneToMany(mappedBy = "mesa", fetch = FetchType.LAZY)	  
+	private List<Pedido> pedidoList;
+	
+	private String mesa;
 
-	public String getHorario() {
-		return horario;
+	public String getMesa() {
+		return mesa;
 	}
 
-	public void setHorario(String horario) {
-		this.horario = horario;
+	public void setMesa(String mesa) {
+		this.mesa = mesa;
 	}
 }

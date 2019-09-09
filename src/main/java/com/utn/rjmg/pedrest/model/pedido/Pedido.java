@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 //import javax.persistence.PrimaryKeyJoinColumn;
@@ -20,12 +21,21 @@ public class Pedido extends AbstractPersistentObject {
  	@OneToOne
 	//@PrimaryKeyJoinColumn
 	private Cliente cliente;
- 	@OneToOne
+ 	@ManyToOne
 	//@PrimaryKeyJoinColumn
 	private Horario horario;
  	@OneToOne
 	//@PrimaryKeyJoinColumn
 	private Factura factura;
+ 	private String Estado;
+
+	
+	public String getEstado() {
+		return Estado;
+	}
+	public void setEstado(String estado) {
+		Estado = estado;
+	}
 	public List<ItemComidaPedido> getItemComidaPedidoList() {
 		return itemComidaPedidoList;
 	}

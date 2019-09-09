@@ -9,29 +9,32 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import com.utn.rjmg.pedrest.model.comida.Bebida;
+import com.utn.rjmg.pedrest.model.comida.Guarnicion;
+import com.utn.rjmg.pedrest.model.comida.ItemComida;
 import com.utn.rjmg.pedrest.specification.base.AbstractBaseSpecification;
 
-public class BebidaSpecification extends AbstractBaseSpecification<Bebida> {
+public class AdicionalesSpecification extends AbstractBaseSpecification<ItemComida> {
 	
-	BebidaFilter filter;
+	GuarnicionFilter filter;
 	
 	@Override
-	public Predicate toPredicate(Root<Bebida> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+	public Predicate toPredicate(Root<ItemComida> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) 
+	{
 		Path<String> nombre = root.get("nombre");
-	
+       
 		final List<Predicate> predicates = new ArrayList<Predicate>();
-		if (filter.getFilterName() != null) {
+		if (filter.getFilterName() != null) 
+		{
 			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
-		}		
+		}	
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}
-
-	public BebidaFilter getFilter() {
+	
+	public AdicionalesFilter getFilter() {
 		return filter;
 	}
 
-	public void setFilter(BebidaFilter filter) {
+	public void setFilter(AdicionalesFilter filter) {
 		this.filter = filter;
 	}
 	
