@@ -14,6 +14,9 @@ public class EmpresaCliente extends AbstractPersistentObject {
 	@OneToMany(mappedBy = "empresaCliente", fetch = FetchType.LAZY)	  
 	private List<Factura> facturaList;
 
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY)	  
+	private List<Cliente> clienteList;
+	
 	public List<Factura> getFacturaList() {
 		return facturaList;
 	}

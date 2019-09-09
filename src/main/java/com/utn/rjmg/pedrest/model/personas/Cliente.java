@@ -1,6 +1,7 @@
 package com.utn.rjmg.pedrest.model.personas;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
@@ -14,6 +15,9 @@ public class Cliente extends AbstractPersistentObject {
 	@OneToOne
 	//@PrimaryKeyJoinColumn
 	private Usuario usuario;
+	
+	@ManyToOne
+	private EmpresaCliente empresa;
 	
 	public Pedido getPedido() {
 		return pedido;

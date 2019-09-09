@@ -21,10 +21,9 @@ public class BebidaSpecification extends AbstractBaseSpecification<Bebida> {
 		Path<String> nombre = root.get("nombre");
 	
 		final List<Predicate> predicates = new ArrayList<Predicate>();
-		if (filter.getRamirou() != null) {
-			predicates.add(criteriaBuilder.equal(nombre, filter.getRamirou()));
-		}
-		
+		if (filter.getFilterName() != null) {
+			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
+		}		
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}
 

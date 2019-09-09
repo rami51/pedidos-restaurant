@@ -1,15 +1,15 @@
 package com.utn.rjmg.pedrest.specification.comida;
 
 public class BebidaFilter {
-	private String ramirou;
+	private String filterName;
 
-	public String getRamirou() {
-		return ramirou;
+	public String getFilterName() {
+		return filterName;
 	}
 
-	public void setRamirou(String ramirou) {
-		this.ramirou = ramirou;
+	public void setFilterName(String filterName) {
+		this.filterName = filterName;
 	}
-	
+
 	
 }

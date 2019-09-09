@@ -11,16 +11,13 @@ import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
 @Entity
 public class Horario extends AbstractPersistentObject {
 	
-	@OneToMany(mappedBy = "horario", fetch = FetchType.LAZY)	  
-	private List<Pedido> pedidoList;
-	
-	private LocalTime horario;
+	private String horario;
 
-	public LocalTime getHorario() {
+	public String getHorario() {
 		return horario;
 	}
 
-	public void setHorario(LocalTime horario) {
+	public void setHorario(String horario) {
 		this.horario = horario;
 	}
 }
