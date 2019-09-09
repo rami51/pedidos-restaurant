@@ -21,7 +21,7 @@ public class PedidoSpecification extends AbstractBaseSpecification<Pedido> {
 	public Predicate toPredicate(Root<Pedido> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 		Path<String> nombre = root.get("nombre");
 		Path<EmpresaCliente> empresa = root.get("empresa");
-		Path<String> horario = root.get("horariio");
+		Path<String> horario = root.get("horario");
 		Path<String> estado = root.get("estado");
 	
 		final List<Predicate> predicates = new ArrayList<Predicate>();
