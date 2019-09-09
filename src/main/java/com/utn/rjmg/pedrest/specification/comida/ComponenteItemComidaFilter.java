@@ -1,6 +1,6 @@
 package com.utn.rjmg.pedrest.specification.comida;
 
-public class AdicionalesFilter 
+public class ComponenteItemComidaFilter 
 {
 	private String filterName;	
 	private Boolean  filterConditionComponent;

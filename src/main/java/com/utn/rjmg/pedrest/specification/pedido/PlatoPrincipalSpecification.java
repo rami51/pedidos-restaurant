@@ -14,22 +14,22 @@ import com.utn.rjmg.pedrest.model.comida.PlatoPrincipal;
 import com.utn.rjmg.pedrest.model.comida.Salsa;
 import com.utn.rjmg.pedrest.specification.base.AbstractBaseSpecification;
 
-public class MenuSpecification extends AbstractBaseSpecification<PlatoPrincipal> {
+public class PlatoPrincipalSpecification extends AbstractBaseSpecification<PlatoPrincipal> {
 	
-	MenuFilter filter;
+	PlatoPrincipalFilter filter;
 	
 	@Override
 	public Predicate toPredicate(Root<PlatoPrincipal> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 		Path<String> nombre = root.get("nombre");
 		Path<Boolean> horno = root.get("horno");
-		Path<Salsa> salsa = root.get("salsa");
-		Path<Guarnicion> guarnicion = root.get("guarnicion");
+		Path<Boolean> salsa = root.get("salsa");
+		Path<Boolean> guarnicion = root.get("guarnicion");
 	
 		final List<Predicate> predicates = new ArrayList<Predicate>();
 		if (filter.getFilterName() != null) {
 			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
 		}
-		if (filter.getFilterHorno!= null) {
+		if (filter.getFilterHorno()!= null) {
 			predicates.add(criteriaBuilder.equal(horno, filter.getFilterHorno()));
 		}
 		if (filter.getFilterSalsa() != null) {
@@ -42,11 +42,11 @@ public class MenuSpecification extends AbstractBaseSpecification<PlatoPrincipal>
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}
 
-	public MenuFilter getFilter() {
+	public PlatoPrincipalFilter getFilter() {
 		return filter;
 	}
 
-	public void setFilter(MenuFilter filter) {
+	public void setFilter(PlatoPrincipalFilter filter) {
 		this.filter = filter;
 	}
 	
