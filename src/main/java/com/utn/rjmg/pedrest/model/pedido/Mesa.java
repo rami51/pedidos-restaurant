@@ -1,6 +1,5 @@
 package com.utn.rjmg.pedrest.model.pedido;
 
-import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.Entity;
