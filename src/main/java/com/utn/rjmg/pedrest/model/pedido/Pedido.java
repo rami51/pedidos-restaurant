@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-//import javax.persistence.PrimaryKeyJoinColumn;
 
 import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
 import com.utn.rjmg.pedrest.model.comida.ItemComidaPedido;
@@ -28,7 +26,8 @@ public class Pedido extends AbstractPersistentObject {
  	private Mesa mesa;
  	
  	private EstadoPedido estado;
-
+ 	
+ 	private String identificador;
 	
 	public EstadoPedido getEstado() {
 		return estado;
@@ -59,5 +58,17 @@ public class Pedido extends AbstractPersistentObject {
 	}
 	public void setFactura(Factura factura) {
 		this.factura = factura;
+	}
+	public Mesa getMesa() {
+		return mesa;
+	}
+	public void setMesa(Mesa mesa) {
+		this.mesa = mesa;
+	}
+	public String getIdentificador() {
+		return identificador;
+	}
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
 	}
 }
