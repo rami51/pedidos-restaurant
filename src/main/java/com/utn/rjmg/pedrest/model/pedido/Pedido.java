@@ -18,23 +18,23 @@ public class Pedido extends AbstractPersistentObject {
 	@OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY)	  
 	private List<ItemComidaPedido> itemComidaPedidoList;
 
- 	@OneToOne
-	//@PrimaryKeyJoinColumn
+ 	@ManyToOne
 	private Cliente cliente;
  	@ManyToOne
-	//@PrimaryKeyJoinColumn
 	private Horario horario;
- 	@OneToOne
-	//@PrimaryKeyJoinColumn
+ 	@ManyToOne
 	private Factura factura;
- 	private String Estado;
+ 	@ManyToOne
+ 	private Mesa mesa;
+ 	
+ 	private EstadoPedido estado;
 
 	
-	public String getEstado() {
-		return Estado;
+	public EstadoPedido getEstado() {
+		return estado;
 	}
-	public void setEstado(String estado) {
-		Estado = estado;
+	public void setEstado(EstadoPedido estado) {
+		this.estado = estado;
 	}
 	public List<ItemComidaPedido> getItemComidaPedidoList() {
 		return itemComidaPedidoList;

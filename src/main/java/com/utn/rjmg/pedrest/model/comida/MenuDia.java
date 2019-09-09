@@ -10,6 +10,7 @@ import com.utn.rjmg.pedrest.model.AbstractPersistentObject;
 @Entity
 public class MenuDia extends AbstractPersistentObject 
 {
+	private DiaSemana dia;
 	@OneToMany(mappedBy = "menuDia", fetch = FetchType.LAZY)	  
 	private List<ItemComidaMenuDia> itemComidaMenuDiaList;
 
@@ -20,4 +21,13 @@ public class MenuDia extends AbstractPersistentObject
 	public void setItemComidaMenuDiaList(List<ItemComidaMenuDia> itemComidaMenuDiaList) {
 		this.itemComidaMenuDiaList = itemComidaMenuDiaList;
 	}
+
+	public DiaSemana getDia() {
+		return dia;
+	}
+
+	public void setDia(DiaSemana dia) {
+		this.dia = dia;
+	}
+	
 }

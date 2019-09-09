@@ -5,8 +5,9 @@ import javax.persistence.Entity;
 @Entity
 public class PlatoPrincipal extends ItemComida {
 	
-	/*no encontré donde se especificaba si el menu podía ser al horno*/
 	private Boolean horno;
+	private Boolean salsa;
+	private Boolean guarnicion;
 
 	public Boolean getHorno() {
 		return horno;
@@ -16,4 +17,20 @@ public class PlatoPrincipal extends ItemComida {
 		this.horno = horno;
 	}
 
+	public Boolean getSalsa() {
+		return salsa;
+	}
+
+	public void setSalsa(Boolean salsa) {
+		this.salsa = salsa;
+	}
+
+	public Boolean getGuarnicion() {
+		return guarnicion;
+	}
+
+	public void setGuarnicion(Boolean guarnicion) {
+		this.guarnicion = guarnicion;
+	}
+	
 }

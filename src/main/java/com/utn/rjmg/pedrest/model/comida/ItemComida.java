@@ -20,6 +20,7 @@ public class ItemComida extends AbstractPersistentObject
 	private Double precio;
 	private Boolean componente;
 	private Integer maxCantidadComponentes;
+	private Boolean habilitado;
 	
 	@OneToMany(mappedBy = "itemComida", fetch = FetchType.LAZY)	  
 	private List<ItemComidaComponenteItemComida> itemComidaComponenteItemComidaList;
@@ -27,6 +28,8 @@ public class ItemComida extends AbstractPersistentObject
 	@OneToMany(mappedBy = "itemComida", fetch = FetchType.LAZY)	  
 	private List<ItemComidaMenuDia> itemComidaMenuDiaList;
 	
+	@OneToMany(mappedBy = "itemComida", fetch = FetchType.LAZY)
+	private List<ItemComidaPedido> itemComidaPedidoList;
 	
 	public String getNombre() {
 		return nombre;
@@ -65,5 +68,16 @@ public class ItemComida extends AbstractPersistentObject
 	public void setItemComidaMenuDiaList(List<ItemComidaMenuDia> itemComidaMenuDiaList) {
 		this.itemComidaMenuDiaList = itemComidaMenuDiaList;
 	}
-	
+	public Boolean getHabilitado() {
+		return habilitado;
+	}
+	public void setHabilitado(Boolean habilitado) {
+		this.habilitado = habilitado;
+	}
+	public List<ItemComidaPedido> getItemComidaPedidoList() {
+		return itemComidaPedidoList;
+	}
+	public void setItemComidaPedidoList(List<ItemComidaPedido> itemComidaPedidoList) {
+		this.itemComidaPedidoList = itemComidaPedidoList;
+	}	
 }
