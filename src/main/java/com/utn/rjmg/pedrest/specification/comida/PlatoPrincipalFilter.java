@@ -1,4 +1,4 @@
-package com.utn.rjmg.pedrest.specification.pedido;
+package com.utn.rjmg.pedrest.specification.comida;
 
 public class PlatoPrincipalFilter {
 private String filterName;
