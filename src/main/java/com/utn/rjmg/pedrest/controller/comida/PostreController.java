@@ -9,7 +9,7 @@ import com.utn.rjmg.pedrest.service.comida.PostreService;
 import com.utn.rjmg.pedrest.specification.comida.PostreSpecification;
 
 @RestController
-@RequestMapping("/postes")
+@RequestMapping("/postres")
 public class PostreController extends AbstractBaseRestController<Postre, PostreService, PostreSpecification> {
 	
 }

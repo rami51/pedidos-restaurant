@@ -9,7 +9,7 @@ import com.utn.rjmg.pedrest.service.pedido.MesaService;
 import com.utn.rjmg.pedrest.specification.pedido.MesaSpecification;
 
 @RestController
-@RequestMapping("/bebidas")
+@RequestMapping("/mesas")
 public class MesaController extends AbstractBaseRestController<Mesa, MesaService, MesaSpecification> {
 	
 }

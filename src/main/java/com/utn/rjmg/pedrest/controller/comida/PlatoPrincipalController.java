@@ -9,7 +9,7 @@ import com.utn.rjmg.pedrest.service.comida.BebidaService;
 import com.utn.rjmg.pedrest.specification.comida.BebidaSpecification;
 
 @RestController
-@RequestMapping("/bebidas")
+@RequestMapping("/platosprincipales")
 public class PlatoPrincipalController extends AbstractBaseRestController<Bebida, BebidaService, BebidaSpecification> {
 	
 }
