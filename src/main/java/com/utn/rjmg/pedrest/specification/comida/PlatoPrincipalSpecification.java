@@ -1,4 +1,4 @@
-package com.utn.rjmg.pedrest.specification.pedido;
+package com.utn.rjmg.pedrest.specification.comida;
 
 import java.util.ArrayList;
 import java.util.List;
