@@ -1,21 +1,12 @@
 package com.utn.rjmg.pedrest.specification.comida;
 
-public class PostreFilter 
-{
-	private String filterName;	
-	private Boolean  filterConditionComponent;
-	public String getFilterName() {
-		return filterName;
-	}
-	public void setFilterName(String filterName) {
-		this.filterName = filterName;
-	}
-	public Boolean getFilterConditionComponent() {
-		return filterConditionComponent;
-	}
-	public void setFilterConditionComponent(Boolean filterConditionComponent) {
-		this.filterConditionComponent = filterConditionComponent;
-	}
-
+public class PostreFilter {
+	private ItemComidaFilter itemComidaFilter;
 	
+	public ItemComidaFilter getItemComidaFilter() {
+		return itemComidaFilter;
+	}
+	public void setItemComidaFilter(ItemComidaFilter itemComidaFilter) {
+		this.itemComidaFilter = itemComidaFilter;
+	}
 }

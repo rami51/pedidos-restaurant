@@ -22,19 +22,28 @@ public class ClienteSpecification extends AbstractBaseSpecification<Cliente> {
 	public Predicate toPredicate(Root<Cliente> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
 		Path<String> nombre = root.get("nombre");
 		Path<String> apellido = root.get("apellido");
+		Path<String> telefono = root.get("telefono");
+		Path<String> email = root.get("email");
+		
 		Path<EmpresaCliente> empresa = root.get("empresa");
+		Path<String> razonSocialEmpresa = empresa.get("razonSocial");
 	
 		final List<Predicate> predicates = new ArrayList<Predicate>();
 		if (filter.getFilterName() != null) {
 			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
 		}
-		if (filter.getFilterSurname() != null) {
-			predicates.add(criteriaBuilder.like(apellido, "%"+filter.getFilterSurname()+"%"));
+		if (filter.getFilterLastname() != null) {
+			predicates.add(criteriaBuilder.like(apellido, "%"+filter.getFilterLastname()+"%"));
 		}
-		if (filter.getFilterCompany() != null) {
-			predicates.add(criteriaBuilder.equal(empresa, filter.getFilterCompany()));
+		if (filter.getFilterCompanyName() != null) {
+			predicates.add(criteriaBuilder.like(razonSocialEmpresa, "%"+filter.getFilterCompanyName()+"%"));
 		}
-		
+		if (filter.getFilterPhone() != null) {
+			predicates.add(criteriaBuilder.equal(telefono, filter.getFilterPhone()));
+		}
+		if (filter.getFilterEmail() != null) {
+			predicates.add(criteriaBuilder.like(criteriaBuilder.lower(email), filter.getFilterEmail().toLowerCase()));
+		}
 		
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}

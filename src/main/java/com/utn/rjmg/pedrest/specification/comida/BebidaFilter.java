@@ -1,14 +1,23 @@
 package com.utn.rjmg.pedrest.specification.comida;
 
 public class BebidaFilter {
-	private String filterName;
+	private ItemComidaFilter itemComidaFilter;
+	private Boolean filterLight;
 
-	public String getFilterName() {
-		return filterName;
+	public Boolean getFilterLight() {
+		return filterLight;
 	}
 
-	public void setFilterName(String filterName) {
-		this.filterName = filterName;
+	public void setFilterLight(Boolean filterLight) {
+		this.filterLight = filterLight;
+	}
+
+	public ItemComidaFilter getItemComidaFilter() {
+		return itemComidaFilter;
+	}
+
+	public void setItemComidaFilter(ItemComidaFilter itemComidaFilter) {
+		this.itemComidaFilter = itemComidaFilter;
 	}
 
 	

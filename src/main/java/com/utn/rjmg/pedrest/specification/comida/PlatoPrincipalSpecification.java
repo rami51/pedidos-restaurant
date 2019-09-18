@@ -10,6 +10,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import com.utn.rjmg.pedrest.model.comida.Guarnicion;
+import com.utn.rjmg.pedrest.model.comida.ItemComida;
 import com.utn.rjmg.pedrest.model.comida.PlatoPrincipal;
 import com.utn.rjmg.pedrest.model.comida.Salsa;
 import com.utn.rjmg.pedrest.specification.base.AbstractBaseSpecification;
@@ -20,15 +21,11 @@ public class PlatoPrincipalSpecification extends AbstractBaseSpecification<Plato
 	
 	@Override
 	public Predicate toPredicate(Root<PlatoPrincipal> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-		Path<String> nombre = root.get("nombre");
 		Path<Boolean> horno = root.get("horno");
 		Path<Boolean> salsa = root.get("salsa");
 		Path<Boolean> guarnicion = root.get("guarnicion");
 	
 		final List<Predicate> predicates = new ArrayList<Predicate>();
-		if (filter.getFilterName() != null) {
-			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
-		}
 		if (filter.getFilterHorno()!= null) {
 			predicates.add(criteriaBuilder.equal(horno, filter.getFilterHorno()));
 		}
@@ -38,6 +35,8 @@ public class PlatoPrincipalSpecification extends AbstractBaseSpecification<Plato
 		if (filter.getFilterGuarnicion() != null) {
 			predicates.add(criteriaBuilder.equal(guarnicion, filter.getFilterGuarnicion()));
 		}
+		
+		this.setItemComidaFiltersOnCriteriaBuilder(root, query, criteriaBuilder);
 		
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}
@@ -50,6 +49,11 @@ public class PlatoPrincipalSpecification extends AbstractBaseSpecification<Plato
 		this.filter = filter;
 	}
 	
-	
+	private void setItemComidaFiltersOnCriteriaBuilder(Root<PlatoPrincipal> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+		ItemComidaSpecification itemComidaSpec = new ItemComidaSpecification();
+		itemComidaSpec.setFilter(filter.getItemComidaFilter());
+		Predicate itemComidaPredicate = itemComidaSpec.toPredicate((Root<ItemComida>) root.as(ItemComida.class), query, criteriaBuilder);
+		criteriaBuilder.and(itemComidaPredicate);
+	}
 	
 }
