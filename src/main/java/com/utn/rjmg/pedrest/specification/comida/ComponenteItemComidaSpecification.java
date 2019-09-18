@@ -10,7 +10,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import com.utn.rjmg.pedrest.model.comida.ComponenteItemComida;
-import com.utn.rjmg.pedrest.model.comida.ItemComida;
 import com.utn.rjmg.pedrest.specification.base.AbstractBaseSpecification;
 
 public class ComponenteItemComidaSpecification extends AbstractBaseSpecification<ComponenteItemComida> {

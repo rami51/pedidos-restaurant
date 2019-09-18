@@ -19,24 +19,10 @@ public class PedidoSpecification extends AbstractBaseSpecification<Pedido> {
 	
 	@Override
 	public Predicate toPredicate(Root<Pedido> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-		Path<String> nombre = root.get("nombre");
-		Path<EmpresaCliente> empresa = root.get("empresa");
-		Path<String> horario = root.get("horario");
-		Path<String> estado = root.get("estado");
+		//TODO: falta este Specification. Va con joins.
+		
 	
 		final List<Predicate> predicates = new ArrayList<Predicate>();
-		if (filter.getFilterName() != null) {
-			predicates.add(criteriaBuilder.like(nombre, "%"+filter.getFilterName()+"%"));
-		}
-		if (filter.getFilterEmpresa() != null) {
-			predicates.add(criteriaBuilder.equal(empresa, filter.getFilterEmpresa()));
-		}
-		if (filter.getFilterHorario() != null) {
-			predicates.add(criteriaBuilder.like(horario, "%"+filter.getFilterHorario()+"%"));
-		}
-		if (filter.getFilterEstado() != null) {
-			predicates.add(criteriaBuilder.like(estado, "%"+filter.getFilterEstado()+"%"));
-		}
 		
 		return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
 	}

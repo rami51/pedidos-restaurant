@@ -12,6 +12,7 @@ import com.utn.rjmg.pedrest.model.factura.Factura;
 public class EmpresaCliente extends AbstractPersistentObject {
 	
 	private String razonSocial;
+	private String cuit;
 	private String direccion;
 	private String mail;
 	private String telefono;
@@ -86,6 +87,14 @@ public class EmpresaCliente extends AbstractPersistentObject {
 
 	public void setPorcentajeDescuento(Double porcentajeDescuento) {
 		this.porcentajeDescuento = porcentajeDescuento;
+	}
+
+	public String getCuit() {
+		return cuit;
+	}
+
+	public void setCuit(String cuit) {
+		this.cuit = cuit;
 	}
 	
 }
